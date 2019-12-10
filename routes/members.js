@@ -5,14 +5,17 @@ var members = require('../controller/members')
 router.post('/add-member', members.create_member);
 
 // Update Member
-router.post('/update-member', members.update_member);
-
+router.post('/update-member/:id', members.update_member);
 
 // Read Member
-router.post('/update-member', members.get_members);
+router.get('/get-member/:id', members.get_member);
+
+
+// Read Members
+router.get('/get-members', members.get_members);
 
 // Delete Member
-router.post('/delete-member', members.delete_member);
+router.post('/delete-member/:id', members.delete_member);
 
 
 module.exports = router
