@@ -3,7 +3,7 @@ var db = require('mysql')
 // Create Member
 exports.create_member = function (req, res) {
      res.header("Content-Type", "application/json");
-     let query = `INSERT INTO members (phoneno, name, address, avalability, designation, gender, martial_status, dob, emgcontact, email, salary, joiningdate, departuredate, medical_allowance, academics_qualifications, conveyance, accomadation_allocated) VALUES('${req.body.phoneno}', '${req.body.name}', '${req.body.address}', '${req.body.avalability}', '${req.body.designation}', '${req.body.gender}', '${req.body.martial_status}', '${db.Types.DATE.valueOf(req.body.dob)}', '${req.body.emgcontact}', '${req.body.email}', '${req.body.salary}', '${req.body.joiningdate}', '${req.body.departuredate}', '${req.body.medical_allowance}', '${req.body.academics_qualifications}','${req.body.conveyance}','${req.body.accomadation_allocated}' )`;
+     let query = `INSERT INTO members (phoneno, name, address, avalability, designation, gender, martial_status, dob, emgcontact, email, salary, joiningdate, departuredate, medical_allowance, academics_qualifications, conveyance, accomadation_allocated) VALUES('${req.body.phoneno}', '${req.body.name}', '${req.body.address}', '${req.body.avalability}', '${req.body.designation}', '${req.body.gender}', '${req.body.martial_status}', '${req.body.dob}', '${req.body.emgcontact}', '${req.body.email}', '${req.body.salary}', '${req.body.joiningdate}', '${req.body.departuredate}', '${req.body.medical_allowance}', '${req.body.academics_qualifications}','${req.body.conveyance}','${req.body.accomadation_allocated}' )`;
      global.db.query(query, (err, result) => {
           if (err) {
                res.status(500).send({ success: false, error: err })

@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mysql = require('mysql');
 var app = express();
+var cors = require('cors')
 
 const db = mysql.createConnection ({
     host: 'localhost',
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors())
 
 require('./routes')(app)
 
